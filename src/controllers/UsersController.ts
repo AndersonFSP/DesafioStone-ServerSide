@@ -15,6 +15,10 @@ class UsersController
     }
 
   }
+
+  list(request: Request, response: Response){
+    return response.send({userId: request.userId});
+  }
 }
 
 export { UsersController }
