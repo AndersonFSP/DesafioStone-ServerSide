@@ -10,7 +10,7 @@ class AuthControllers
        const userToken = await authService.authenticate(email, password);
        return response.json(userToken);
     }catch(e) {
-      return response.status(401);
+      return response.sendStatus(401);
     }
 
   }

@@ -9,7 +9,7 @@ const authenticateController = new AuthControllers();
 
 
 router.post("/users", usersController.create);
+router.put("/user/:id", authMiddlewares, usersController.update);
 router.post("/auth", authenticateController.authenticate);
 router.get("/list", authMiddlewares, usersController.list)
-
 export { router };

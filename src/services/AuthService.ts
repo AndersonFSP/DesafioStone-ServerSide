@@ -14,10 +14,10 @@ class AuthService
     await this.validadePassword(password, userExist)
 
     const token = this.generateToken(userExist.id);
-    
     const user = { 
       id: userExist.id, 
-      email: userExist.email 
+      email: userExist.email,
+      name: userExist.name
     }
 
     return  {
@@ -28,6 +28,7 @@ class AuthService
 
   async findUser(email: string) {
     const userExist = await this.usersRepository.findOne({ email });
+
     if(!userExist) 
       throw new Error("Usuário não existe");
     
