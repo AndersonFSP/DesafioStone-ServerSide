@@ -24,14 +24,22 @@ class UsersService
   async update(id: number, email: string, password: string, name: string) {
     const user = await this.usersRepository.findOne({ id });
     if(!user) 
-      throw new Error("Usuario já cadastrado")
+      throw new Error("Usuário não encontrado")
     
     user.name = name;
     user.email = email;
     user.password = password;
     
     return await this.usersRepository.save(user)
- 
+  }
+
+  async findUser(id: number) {
+    const user = await this.usersRepository.findOne( { id });
+    if(!user)
+      throw new Error("Usuário não encontrado");
+
+    return user;
+    
   }
 }
 

@@ -9,7 +9,8 @@ const authenticateController = new AuthControllers();
 
 
 router.post("/users", usersController.create);
+router.get("/user/:id", authMiddlewares, usersController.findUser);
 router.put("/user/:id", authMiddlewares, usersController.update);
-router.post("/auth", authenticateController.authenticate);
-router.get("/list", authMiddlewares, usersController.list)
+router.post("/auth/login", authenticateController.authenticate);
+router.get("/list", usersController.list)
 export { router };

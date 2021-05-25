@@ -16,7 +16,7 @@ class UsersController
   }
 
   async update(request: Request, response: Response) {
-    const { id } = request.params
+    const { id } = request.params;
     const { email, password, name } = request.body;
     const usersService = new UsersService();
     try {
@@ -28,8 +28,21 @@ class UsersController
     }
   }
 
+  async findUser(request: Request, response: Response) {
+    const { id } = request.params;
+    const usersService = new UsersService();
+    try {
+      const user = await usersService.findUser(parseInt(id));
+      return response.json(user);
+    }catch {
+      return response.sendStatus(409);
+    }
+
+  }
+
   list(request: Request, response: Response){
-    return response.send({userId: request.userId});
+    // return response.send({userId: request.userId});
+    return response.json({message : "OlA"});
   }
 }
 
