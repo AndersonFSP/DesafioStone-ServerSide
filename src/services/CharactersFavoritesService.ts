@@ -16,6 +16,23 @@ class CharactersFavoritesService
     return characterFavorite;
   }
 
+  async findCharacters(user_id: number) {
+    const characters = await this.charactersFavoritesRepository.find({ user_id });
+    if(!characters)
+      throw new Error("characters does not exist");
+
+    return characters;
+  }
+
+  async delete(user_id: number, id_character: number) {
+    const character = await this.charactersFavoritesRepository.findOne({ user_id, id_character});
+    if(!character)
+      throw new Error("character does not exist");
+
+    await this.charactersFavoritesRepository.remove(character);
+
+  }
+
 }
 
 export { CharactersFavoritesService }
