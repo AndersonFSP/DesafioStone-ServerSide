@@ -6,11 +6,12 @@ class CharactersFavoritesService
 {
   private charactersFavoritesRepository: Repository<CharacterFavorite> = getCustomRepository(CharactersFavoritesRepository);
 
-  async create(id_character: number, name: string, user_id: number ) {
+  async create(id_character: number, name: string, user_id: number, image: string ) {
     const characterFavorite = this.charactersFavoritesRepository.create({
       id_character,
       name,
-      user_id
+      user_id,
+      image
     });
     await this.charactersFavoritesRepository.save(characterFavorite);
     return characterFavorite;

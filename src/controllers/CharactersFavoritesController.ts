@@ -5,10 +5,10 @@ class CharactersFavoritesController
 {
   async create(request: Request, response: Response) {
     let { user_id } = request.params;
-    const { id_character, name } = request.body;
+    const { id_character, name, image } = request.body;
     const charactersFavoritesService = new CharactersFavoritesService();
     try{
-      const characterFavorite = await charactersFavoritesService.create(id_character, name, parseInt(user_id));
+      const characterFavorite = await charactersFavoritesService.create(id_character, name, parseInt(user_id), image);
       return response.json(characterFavorite);
     }catch{
       return response.sendStatus(404);

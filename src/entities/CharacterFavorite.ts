@@ -25,6 +25,9 @@ class CharacterFavorite
 
   @Column() 
   user_id: number;
+
+  @Column()
+  image: string;
 }
 
 export { CharacterFavorite }

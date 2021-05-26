@@ -25,6 +25,9 @@ class ComicFavorite
 
   @Column() 
   user_id: number;
+
+  @Column()
+  image: string;
 }
 
 export { ComicFavorite }

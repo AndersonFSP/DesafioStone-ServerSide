@@ -6,11 +6,12 @@ class ComicsFavoritesService
 {
   private comicsFavoritesRepository: Repository<ComicFavorite> = getCustomRepository(ComicsFavoritesRepository);
 
-  async create(id_comic: number, title: string, user_id: number ) {
+  async create(id_comic: number, title: string, user_id: number, image: string ) {
     const comicFavorite = this.comicsFavoritesRepository.create({
       id_comic,
       title,
       user_id,
+      image
     });
     await this.comicsFavoritesRepository.save(comicFavorite);
     return comicFavorite;
