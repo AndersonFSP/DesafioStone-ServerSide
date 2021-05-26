@@ -30,7 +30,6 @@ class CharactersFavoritesService
       throw new Error("character does not exist");
 
     await this.charactersFavoritesRepository.remove(character);
-
   }
 
 }
