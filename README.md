@@ -13,8 +13,8 @@ $ yarn run dev
 
 Efeutue uma requisição post para:
 ```
+POST http://localhost:3000/auth/login
 POST http://localhost:3000/users
-POST http://localhost:3000/auth/register
 ```
 Com os dados
 
