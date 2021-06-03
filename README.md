@@ -9,12 +9,12 @@ $ yarn
 $ yarn run dev 
 ```
 
-## login/registrar-se
+## registrar-se/login
 
-Efeutue uma requisição post para:
+Efetue uma requisição post para:
 ```
-POST http://localhost:3000/auth/login
 POST http://localhost:3000/users
+POST http://localhost:3000/auth/login
 ```
 Com os dados
 
